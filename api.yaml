@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  title: HMS V2.0 API Documentation
+  description: API for the Modern Hospital Management System
+  version: 2.3.0
+servers:
+  - url: http://127.0.0.1:5000/api
+paths:
+  /auth/register:
+    post:
+      summary: Register a new patient
+      responses:
+        '201':
+          description: User created
+  /auth/login:
+    post:
+      summary: Authenticate and get JWT token
+      responses:
+        '200':
+          description: Login successful
+  /admin/dashboard:
+    get:
+      summary: Get hospital-wide statistics and recent activity
+      responses:
+        '200':
+          description: Stats returned
+  /admin/doctors:
+    get:
+      summary: List all doctors
+    post:
+      summary: Onboard a new doctor
+  /admin/patients:
+    get:
+      summary: List all active patients
+  /doctor/availability:
+    post:
+      summary: Set/Update weekly slot availability
+  /patient/appointment:
+    post:
+      summary: Book a new clinical session
+  /patient/history:
+    get:
+      summary: Fetch complete medical and treatment history
+  /shared/patient/{id}/history:
+    get:
+      summary: Access patient history (Shared between Admin and Doctor)
